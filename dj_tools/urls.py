@@ -18,6 +18,7 @@ from django.urls import path,include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('sslapp/', include('sslapp.urls')),
+    path('', include('sysset.urls')),
+    path('sslapp/', include('sslapp.urls'))
     
 ]
