@@ -3,7 +3,7 @@ from django.http import HttpResponse
 
 
 def home(request):
-    return render(request,'sysset/index.html')
+    return render(request,'service/index.html')
 
 def about(request):
-    return render(request,'sysset/about.html')
+    return render(request,'service/about.html')

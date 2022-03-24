@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class SyssetConfig(AppConfig):
+class ServiceConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'sysset'
+    name = 'service'

@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
-    'sysset.apps.SyssetConfig',
+    'service.apps.ServiceConfig',
     'sslapp.apps.SslappConfig'
 ]
 
