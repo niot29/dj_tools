@@ -3,7 +3,7 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 from django.urls import reverse
 
-class service(models.Model):
+class Services(models.Model):
     service_title = models.CharField(max_length=100)
     service_desc = models.TextField()
     service_create_date = models.DateTimeField(default=timezone.now)

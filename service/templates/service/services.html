@@ -1,0 +1,41 @@
+ {% extends 'service/base.html' %}
+ {% block content %}
+    <a> index fdfff </a>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+          <i class="fa fa-clock-o fa-fw"></i> Responsive Timeline
+      </div>
+      <!-- /.panel-heading -->
+      <div class="panel-body">
+          <ul class="timeline">
+
+            {% for service in services %}
+
+               <li class="{% cycle '' 'timeline-inverted' %}"> 
+                    <div class="timeline-badge  success"><i class="fa fa-bomb"></i>
+                    </div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h2 class="timeline-title"> {{ service.service_title}} </h2>
+
+                            <p>
+                                <small class="text-muted"><i class="fa fa-clock-o"></i>  {{ service.service_create_date|date:"F d, Y" }}
+                                by {{ service.service_author }} 
+                                </small>
+                            </p>
+                        </div>
+                        <div class="timeline-body">
+                            <p>{{ service.service_desc }}.</p>
+            
+                        </div>
+                    </div>
+                </li>
+                
+            {% endfor %}          
+          </ul>
+          
+      </div>
+      <!-- /.panel-body -->
+      
+  </div>
+ {% endblock content %}
