@@ -1,10 +1,14 @@
 {% extends 'service/base.html' %}
 {% block  content %}    
 
-    <div class="col-lg-6">
+    <div >
         <div class="panel panel-default">
             <div class="panel-heading">
-                Striped Rows
+                <!-- Button trigger modal -->
+                Add new site:  <button type="button" class="btn btn-info btn-circle" data-toggle="modal" data-target="#exampleModal">
+                <i class="fa fa-plus"></i>
+                </button>
+                
             </div>
             <!-- /.panel-heading -->
             <div class="panel-body">
@@ -13,30 +17,52 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>Username</th>
+                                <th>TITLE</th>
+                                <th>SITE URL</th>
+                                <th>DESCRIPTION</th>
+                                <th>START_DATE</th>
+                                <th>EXPIRE_DATE</th>
+                                <th>CHECK DATE</th>
+                                <th>CREATE BY</th>
+                                <th>STATUS</th>
+
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Larry</td>
-                                <td>the Bird</td>
-                                <td>@twitter</td>
-                            </tr>
+                            {% for  sslcheck in  sslcheckList %}
+                                <tr>
+                                    <td><div class="btn-group open">
+                                        <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                                            <i class="fa fa-gear"></i> <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="#">Detail</a>
+                                            </li>
+                                            <li><a href="#">Edit</a>
+                                            </li>
+                                            <li class="divider"></li>
+                                            <li><a href="#">Delete</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    </td>
+                                    <td>{{ sslcheck.ssl_title }}</td>
+                                    <td>{{ sslcheck.ssl_site }}</td>
+                                    <td>{{ sslcheck.ssl_desc|slice:":10" }}.. .</td>
+                                    <td>{{ sslcheck.ssl_create_date }}</td>
+                                    <td>{{ sslcheck.ssl_expiry_date }}</td>
+                                    <td>{{ sslcheck.ssl_last_check }}</td>
+                                    <td>{{ sslcheck.ssl_author }}</td>
+                                    <td>
+                                        {% if sslcheck.ssl_status > 0 %}
+                                            <button type="button" class="btn btn-success btn-circle"><i class="fa fa-check"></i></button>
+                                        {% else %}
+                                            <button type="button" class="btn btn-danger btn-circle"><i class="fa fa-times"></i></button>
+                                        {% endif %}
+                                    </td>
+                                  
+                                </tr>
+                            {% endfor %}
                         </tbody>
                     </table>
                 </div>
@@ -48,5 +74,26 @@
     </div>
 
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
 {% endblock content %}
 
