@@ -19,6 +19,6 @@ from django.urls import path,include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('service.urls')),
-    path('sslapp/', include('sslapp.urls'))
+    path('ssl_check/', include('sslapp.urls'))
     
 ]
