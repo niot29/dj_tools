@@ -1,6 +1,9 @@
 from django.urls import path
-from . import views
+from .views import (
+    SslCheckList
+)
+
 
 urlpatterns = [
-    path('check/', views.sslCheck, name='sslapp-sslcheck'),
+    path('check/', SslCheckList.as_view(), name='sslapp-sslcheck'),
 ]
