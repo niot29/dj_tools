@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
+    'bootstrap_modal_forms',
+    
     'service.apps.ServiceConfig',
     'sslapp.apps.SslappConfig'
 ]

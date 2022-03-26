@@ -266,5 +266,18 @@
         <!-- Custom Theme JavaScript -->
         <script src="{% static 'service/js/startmin.js' %}"></script>
 
+        <!-- django-bootstrap-modal-forms 2.2.0 -->
+        <script src="{% static 'js/jquery.bootstrap.modal.forms.js' %}"></script>
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+            
+                $("#create_").modalForm({
+                    formURL: "{% url 'sslapp-create-check' %}"
+                });
+            
+            });
+            </script>
+
     </body>
 </html>
