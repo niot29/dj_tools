@@ -246,7 +246,7 @@
                     <!-- /.row Add Somthing-->
                     {% block content %}{% endblock content %}
                     
-                </div>
+                </div>dd
                 <!-- /.container-fluid -->
             </div>
             <!-- /#page-wrapper -->
@@ -269,15 +269,7 @@
         <!-- django-bootstrap-modal-forms 2.2.0 -->
         <script src="{% static 'js/jquery.bootstrap.modal.forms.js' %}"></script>
 
-        <script type="text/javascript">
-            $(document).ready(function() {
-            
-                $("#create_").modalForm({
-                    formURL: "{% url 'sslapp-create-check' %}"
-                });
-            
-            });
-            </script>
+        {% block script %}{% endblock script %}
 
     </body>
 </html>

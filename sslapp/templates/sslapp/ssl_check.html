@@ -9,7 +9,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 <!-- Button trigger modal -->
-                Add new site:  <button id="create_" type="button" class="btn btn-info btn-circle">
+                Add new site:  <button id="create_check" type="button" class="btn btn-info btn-circle">
                 <i class="fa fa-plus"></i>
                 </button>
                 
@@ -80,4 +80,19 @@
 
 
 {% endblock content %}
+
+{% block script %}
+
+<script type="text/javascript">
+    $(document).ready(function() {
+    
+        $("#create_check").modalForm({
+            formURL: "{% url 'sslapp-create-check' %}"
+        });
+    
+    });
+</script>
+
+{% endblock script %}
+
 
