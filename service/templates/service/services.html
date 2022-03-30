@@ -15,7 +15,7 @@
                             <div class="timeline-badge  success"><i class="fa fa-bomb"></i></div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
-                                    <h2 class="timeline-title"> {{ service.service_title}} </h2>
+                                    <h2 class="timeline-title"> <a href="{% url 'sslapp-sslcheck' %}">{{ service.service_title}} </a></h2>
 
                                     <p>
                                         <small class="text-muted"><i class="fa fa-clock-o"></i>  {{ service.service_create_date|date:"F d, Y" }}

@@ -8,6 +8,7 @@ class Services(models.Model):
     service_desc = models.TextField()
     service_create_date = models.DateTimeField(default=timezone.now)
     service_author = models.ForeignKey(User,on_delete=models.CASCADE)
+    service_url = models.CharField(max_length=100)
     service_status = models.IntegerField(default=1)
     
     def __str__(self):

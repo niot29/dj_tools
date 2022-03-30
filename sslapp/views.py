@@ -1,5 +1,6 @@
 from dataclasses import field, fields
 from pyexpat import model
+from django.contrib.auth.mixins import LoginRequiredMixin,UserPassesTestMixin
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.generic import (
@@ -9,9 +10,10 @@ from django.views.generic import (
    DeleteView
 )
 from django.urls import reverse_lazy
+
 from .models import sslSiteModel
 from .forms import SslCheckModelForm
-from bootstrap_modal_forms.generic import BSModalCreateView
+from bootstrap_modal_forms.generic import BSModalCreateView,BSModalDeleteView
 
 
 
@@ -32,5 +34,9 @@ class SslCheckCreateView(BSModalCreateView):
     success_message = 'Success: Check URL was created.'
     success_url = reverse_lazy('sslapp-sslcheck')
    
-class SslcheckDetele(DeleteView):
-   pass
+class SslcheckDetele(BSModalDeleteView):
+   model = sslSiteModel
+   template_name = 'sslapp/ssl_delete_check.html'
+   success_message = 'Success: Check URL was created.'
+   success_url = reverse_lazy('sslapp-sslcheck')
+

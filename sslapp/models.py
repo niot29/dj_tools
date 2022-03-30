@@ -7,6 +7,7 @@ class sslSiteModel(models.Model):
     ssl_title = models.CharField(max_length=100)
     ssl_site = models.URLField()
     ssl_desc = models.TextField()
+    ssl_cert_info = models.TextField()
     ssl_create_date = models.DateField(null=True, blank=True)
     ssl_expiry_date = models.DateField(null=True, blank=True)        
     ssl_last_check = models.DateField(null=True, blank=True)
