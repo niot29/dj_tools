@@ -1,0 +1,24 @@
+{% load widget_tweaks %}
+
+<div class="modal-header">
+  <h3 class="modal-title">SSL check Detail</h3>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<div class="modal-body">
+  <div class="">
+    Title: {{ sslcheck.ssl_title }}
+  </div>
+  <div class="">
+    Author: {{ sslcheck.ssl_author }}
+  </div>
+  <div class="">
+    Price: {{ sslcheck.ssl_desc }} €
+  </div>
+</div>
+
+<div class="modal-footer">
+  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+</div>

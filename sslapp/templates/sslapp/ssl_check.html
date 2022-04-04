@@ -1,5 +1,14 @@
 {% extends 'service/base.html' %}
 {% block  content %}    
+    <!-- Modal 1 with id="create-book"-->
+    <div class="modal fade" id="create-modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+        </div>
+        </div>
+    </div>
+    
+    <!-- Modal 2 with id="modal" -->
     <div class="modal fade" tabindex="-1" role="dialog" id="modal">
         <div class="modal-dialog" role="document">
         <div class="modal-content"></div>
@@ -8,10 +17,15 @@
     <div >
         <div class="panel panel-default">
             <div class="panel-heading">
-                <!-- Button trigger modal -->
-                Add new site:  <button id="create_check" type="button" class="btn btn-info btn-circle">
-                <i class="fa fa-plus"></i>
-                </button>
+                <div >
+                    <!-- Button trigger modal -->
+                    <button id="create_check" type="button" class="btn btn-info" style="margin: 5px;">   
+                    <i class="fa fa-plus"></i>  Add new site:   
+
+                    <!-- Button trigger modal -->
+                    <button id="run_check" type="button" class="btn btn-success" style="margin: 5px;">
+                    <i class="fa fa-play"></i> Run Now: 
+                </div>
                 
             </div>
             <!-- /.panel-heading -->
@@ -40,7 +54,10 @@
                                             <i class="fa fa-gear"></i> <span class="caret"></span>
                                         </button>
                                         <ul class="dropdown-menu" role="menu">
-                                            <li><a href="#">Detail</a>
+                                            <li>
+                                                <!-- Detail buttons -->
+                                                <button type="button" class="detail_check bs-modal btn btn-sm btn-primary" data-form-url="{% url 'sslapp-check-detail' sslcheck.pk %}">
+                                                <a>Detail</a>
                                             </li>
                                             <li><a href="#">Edit</a>
                                             </li>
@@ -85,9 +102,15 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-    
+        
+        // Read book buttons
+        $(".detail_check").each(function () {
+            $(this).modalForm({formURL: $(this).data("form-url")});
+        });
+        
         $("#create_check").modalForm({
-            formURL: "{% url 'sslapp-check-create' %}"
+            formURL: "{% url 'sslapp-check-create' %}",
+            modalID: "#create-modal"
         });
     
     });

@@ -13,7 +13,7 @@ from django.urls import reverse_lazy
 
 from .models import sslSiteModel
 from .forms import SslCheckModelForm
-from bootstrap_modal_forms.generic import BSModalCreateView,BSModalDeleteView
+from bootstrap_modal_forms.generic import BSModalCreateView,BSModalDeleteView,BSModalReadView
 
 
 
@@ -27,12 +27,16 @@ class SslCheckList(ListView):
    model = sslSiteModel
    template_name = 'sslapp/ssl_check.html'
    context_object_name = 'sslcheckList'
-   
+    
 class SslCheckCreateView(BSModalCreateView):
     template_name = 'sslapp/ssl_createcheck.html'
     form_class = SslCheckModelForm
     success_message = 'Success: Check URL was created.'
     success_url = reverse_lazy('sslapp-sslcheck')
+
+class SslcheckDetail(BSModalReadView):
+    model = SslCheckModelForm
+    template_name = 'sslapp/ssl_detail_check.html'
    
 class SslcheckDetele(BSModalDeleteView):
    model = sslSiteModel
