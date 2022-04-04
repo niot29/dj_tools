@@ -17,21 +17,22 @@
     <div >
         <div class="panel panel-default">
             <div class="panel-heading">
-                <div >
-                    <!-- Button trigger modal -->
-                    <button id="create_check" type="button" class="btn btn-info" style="margin: 5px;">   
-                    <i class="fa fa-plus"></i>  Add new site:   
-                </div>
-                <div>
-                    <!-- Button trigger modal -->
-                    <form method="POST" action="{% url "sslapp-exec-check" %}">
-                        {% csrf_token %} <input type="submit" class="btn btn-success  fa-play" style="margin: 5px;" value="Run Now: ">
-                        
+                <div  class="column">
+                     <!-- Button trigger  -->   
+                     <form method="POST" action="{% url "sslapp-exec-check" %}" >
+                        {% csrf_token %} 
+                       <!--<input type="submit" class="btn btn-success" class="fa fa-plus" style="margin: 3px;" value="Run Now: ">  </input> --> 
+                        <button type="submit" class="btn btn-success" style="margin: 3px;">    
+                            <i class="fa fa-play"></i>  Run Now:  
+                        </button>
+                   
+                    
+                        <!-- Button trigger modal -->
+                        <button id="create_check" type="button" class="btn btn-info" style="margin: 3px;">    
+                        <i class="fa fa-plus"></i>  Add new site:   
+                        </button>
                     </form>
-                    <button id="run_check" type="button" class="btn btn-success" style="margin: 5px;">
-                    <i class="fa fa-play"></i> Run Now: 
-                </div>
-                
+
             </div>
             <!-- /.panel-heading -->
             <div class="panel-body">
@@ -48,6 +49,7 @@
                                 <th>CHECK DATE</th>
                                 <th>CREATE BY</th>
                                 <th>STATUS</th>
+                                <th>#</th>
 
                             </tr>
                         </thead>
@@ -55,22 +57,30 @@
                             {% for  sslcheck in  sslcheckList %}
                                 <tr>
                                     <td><div class="btn-group open">
-                                        <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-                                            <i class="fa fa-gear"></i> <span class="caret"></span>
-                                        </button>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li>
-                                                <!-- Detail buttons -->
-                                                <button type="button" class="detail_check bs-modal btn btn-sm btn-primary" data-form-url="{% url 'sslapp-check-detail' sslcheck.pk %}">
-                                                <a>Detail</a>
-                                            </li>
-                                            <li><a href="#">Edit</a>
-                                            </li>
-                                            <li class="divider"></li>
-                                            <li><a href="#">Delete</a>
-                                            </li>
-                                        </ul>
-                                    </div>
+                                            <button type="button" class="btn btn-info btn-sm " data-toggle="collapse" data-target="#certinfo">
+                                                <i class="fa fa-info"></i>
+                                            </button>
+                                            
+                                            <div id="certinfo" class="collapse">
+                                                <br>
+                                                <br>
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                            </div>
+                                        </div>
                                     </td>
                                     <td>{{ sslcheck.ssl_title }}</td>
                                     <td>{{ sslcheck.ssl_site }}</td>
@@ -81,10 +91,13 @@
                                     <td>{{ sslcheck.ssl_author }}</td>
                                     <td>
                                         {% if sslcheck.ssl_status > 0 %}
-                                            <button type="button" class="btn btn-success btn-circle"><i class="fa fa-check"></i></button>
+                                            <button type="button" class="btn btn-success btn-circle  btn-sm"><i class="fa fa-check"></i></button>
                                         {% else %}
-                                            <button type="button" class="btn btn-danger btn-circle"><i class="fa fa-times"></i></button>
+                                            <button type="button" class="btn btn-danger btn-circle  btn-sm"><i class="fa fa-times"></i></button>
                                         {% endif %}
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-danger btn-alert  btn-sm"><i class="fa fa-trash"></i></button>
                                     </td>
                                   
                                 </tr>

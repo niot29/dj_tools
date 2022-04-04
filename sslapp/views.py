@@ -1,5 +1,4 @@
 from dataclasses import field, fields
-from pyexpat import model
 from django.contrib.auth.mixins import LoginRequiredMixin,UserPassesTestMixin
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
@@ -11,8 +10,8 @@ from django.views.generic import (
 )
 from django.urls import reverse_lazy
 from . func_check import run_sslcheckModule
-from .models import sslSiteModel
-from .forms import SslCheckModelForm
+from . models import sslSiteModel
+from . forms import SslCheckModelForm
 from bootstrap_modal_forms.generic import BSModalCreateView,BSModalDeleteView,BSModalReadView
 
 
@@ -24,8 +23,7 @@ def sslCheck(requst):
    return render(requst,'sslapp/ssl_check.html',{'title': 'About'})
 
 def SslCheckExec(request):
-   run_sslcheckModule('google.com')
-   print ("SslCheckExec -- ")
+   run_sslcheckModule()
    return redirect('sslapp-sslcheck')
 
 class SslCheckList(ListView):
