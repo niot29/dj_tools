@@ -21,8 +21,13 @@
                     <!-- Button trigger modal -->
                     <button id="create_check" type="button" class="btn btn-info" style="margin: 5px;">   
                     <i class="fa fa-plus"></i>  Add new site:   
-
+                </div>
+                <div>
                     <!-- Button trigger modal -->
+                    <form method="POST" action="{% url "sslapp-exec-check" %}">
+                        {% csrf_token %} <input type="submit" class="btn btn-success  fa-play" style="margin: 5px;" value="Run Now: ">
+                        
+                    </form>
                     <button id="run_check" type="button" class="btn btn-success" style="margin: 5px;">
                     <i class="fa fa-play"></i> Run Now: 
                 </div>

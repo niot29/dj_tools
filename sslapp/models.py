@@ -16,3 +16,7 @@ class sslSiteModel(models.Model):
     
     def __str__(self):
         return self.ssl_title
+    
+    def get_absolute_url(self):
+        return reverse("sslapp-sslcheck", kwargs={"pk": self.pk})
+    
